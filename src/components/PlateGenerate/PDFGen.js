@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 
 function PDFGenerator() {
     const [pdfUrl, setPdfUrl] = useState('');
-    const location = useLocation();
+    // const location = useLocation();
     // const CarPlate = location.state?.chinaCarPlate || 'Unknown';
     const CarPlate = 'B1234'; // FOR TESTING FUNCTION
 
@@ -51,7 +51,7 @@ function PDFGenerator() {
     return (
         <div>
             <button onClick={generatePdf}>Generate PDF</button>
-            {pdfUrl && <iframe src={pdfUrl} style={{ height: '1000px', width: '100%' }} />}
+            {pdfUrl && <iframe src={pdfUrl} title="PDF Display" style={{ height: '1000px', width: '100%' }} />}
         </div>
     );
 }
