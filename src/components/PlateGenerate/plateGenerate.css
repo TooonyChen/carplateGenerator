@@ -1,0 +1,120 @@
+.plateGenerate-page-base {
+    background-image: url('assets/PlateGenPageBG.webp');
+    background-size: cover;
+    background-position: center;
+    --plateGenerate-bg: #96CDCD;
+    --plateGenerate-color: #3b4148;
+    --plateGenerate-input: #525d68;
+    --plateGenerate-input-bg: #d7dee5;
+    --plateGenerate-input-hover: #b6c3d1;
+    --plateGenerate-input-placeholder: #8e98a2;
+    --plateGenerate-btn: #fff;
+    --plateGenerate-btn-bg: #525d68;
+    /*--plateGenerate-btn-focus: #f0008359;*/
+    --plateGenerate-btn-hover: #8e98a2;
+    --plateGenerate-btn-active: #b6c3d1;
+    background-color: var(--plateGenerate-bg);
+    color: var(--plateGenerate-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/*.plateGenerate-section button,*/
+/*.plateGenerate-section input {*/
+/*    padding: 10px;*/
+/*    margin: 5px;*/
+/*}*/
+/*。plateGenerate-form{*/
+/*    display: block;*/
+/*    margin: 2% 0% 2% 5%;*/
+/*    padding:5%;*/
+/*}*/
+.plateGenerate-buttons{
+    display: block;
+    margin: 2% 0% 2% 5%;
+    padding:5%;
+}
+.plateGenerate-section{
+    display: block;
+    border-radius: 10px;
+    width: 200%;
+    height: 120%;
+    background-color: rgba(70, 80, 80, 0.5);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.plateGenerate-input {
+    display: block;
+    width: 85%;
+    padding: 5%;
+    margin: 5% 0%;
+    background-color: var( --plateGenerate-input-bg);
+    font-size:1.3rem;
+    text-align: center;
+    border-radius: 10px;
+    border: 0 ;
+}
+
+.plateGenerate-button {
+    display: block;
+    width: 95%;
+    padding: 3%;
+    margin: 5% 0%;
+    background-color: var(--plateGenerate-btn-bg);
+    color: var(--plateGenerate-btn);
+    border: none;
+    border-radius: 5px;
+    font-size:1.1rem;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.2);
+}
+
+.plateGenerate-button:hover {
+    background-color: var(--plateGenerate-btn-hover);
+}
+
+/*.plateGenerate-button:focus {*/
+/*    background-color: var(--plateGenerate-btn-focus);*/
+/*}*/
+
+.plateGenerate-button:active {
+    background-color: var(--plateGenerate-btn-active);
+}
+
+.plateGenerate-title {
+    color:#FFFAFA;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.2);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+.plateGenerate-input:focus {
+    outline: none;
+    border-width:0;
+    box-shadow: 0 0 0;
+    background-color:#FFFAFA;
+}
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pdf-viewer {
+    width: 50%;  /* Adjust as needed */
+    height: 100vh;  /* Adjust as needed */
+}
+
+/*.plateGenerate-section {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.plateGenerate-form {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/

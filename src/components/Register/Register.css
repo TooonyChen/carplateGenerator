@@ -1,0 +1,109 @@
+.register-page-base {
+    background-image: url('assets/RegisterBG.jpg');
+    background-size: cover;
+    background-position: center;
+    --register-bg: #96CDCD;
+    --register-color: #3b4148;
+    --register-input: #525d68;
+    --register-input-bg: #d7dee5;
+    --register-input-hover: #b6c3d1;
+    --register-input-placeholder: #8e98a2;
+    --register-btn: #fff;
+    --register-btn-bg: #525d68;
+    /*--register-btn-focus: #f0008359;*/
+    --register-btn-hover: #8e98a2;
+    --register-btn-active: #b6c3d1;
+    background-color: var(--register-bg);
+    color: var(--register-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.register-buttons{
+    display: block;
+    margin: 2% 0% 2% 5%;
+    padding:5%;
+
+}
+/*.register-section button,*/
+/*.register-section input {*/
+/*    padding: 10px;*/
+/*    margin: 5px;*/
+/*}*/
+
+.register-input {
+    display: block;
+    width: 85%;
+    padding: 5%;
+    margin: 5% 0%;
+    background-color: var(--register-input-bg);
+    border: 0 ;
+    border-radius: 10px;
+}
+.register-section{
+    display: block;
+    border-radius: 10px;
+    width: 30%;
+    height: 70%;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.register-button {
+    display: block;
+    width: 95%;
+    padding: 5%;
+    margin: 5% 0%;
+    background-color: var(--register-btn-bg);
+    color: var(--register-btn);
+    border: none;
+    border-radius: 5px;
+    font-size:1.1rem;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.2);
+}
+
+.register-button:hover {
+    background-color: var(--register-btn-hover);
+}
+
+/*.register-button:focus {*/
+/*    background-color: var(--register-btn-focus);*/
+/*}*/
+
+.register-button:active {
+    background-color: var(--register-btn-active);
+}
+
+.register-title {
+    color:#FFFAFA;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.2);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+.register-input:focus {
+    outline: none;
+    border-width:0;
+    box-shadow: 0 0 0;
+    background-color:#FFFAFA;
+}
+.footer{
+    color:#FFFAFA;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.2);
+    margin: 0 12%;
+}
+.footer-link{
+    text-decoration: none;
+    font-weight: bold;
+    color:#6495ED;
+}
+.footer-link:hover{
+    color:#87CEFA;
+}
+.footer-link:active{
+    color:#E0FFFF;
+}
+
