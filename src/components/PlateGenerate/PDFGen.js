@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 // import { useLocation } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
+import {useLocation} from "react-router-dom";
 
 function PDFGenerator() {
     const [pdfUrl, setPdfUrl] = useState('');
-    // const location = useLocation();
-    // const CarPlate = location.state?.chinaCarPlate || 'Unknown';
-    const CarPlate = 'B1234'; // FOR TESTING FUNCTION
+    const location = useLocation();
+    const CarPlate = location.state?.chinaCarPlate || 'Unknown';
+    // const CarPlate = 'B1234'; // FOR TESTING FUNCTION
 
     useEffect(() => {
         if (CarPlate !== 'Unknown') {

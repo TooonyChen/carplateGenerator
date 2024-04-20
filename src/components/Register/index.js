@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
-    const [username, setUsername] = useState('');
+
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
@@ -11,24 +12,33 @@ const Register = () => {
     const passwordPattern = "^[a-zA-Z0-9-=+_.?!/@#$%^&*]+$";
 
     const handleRegistration = async (event) => {
+
         event.preventDefault();  // Prevent the default form submission
 
+        // Construct the user data in the required JSON format
+        const userData = {
+            name: name,
+            password: password
+        };
+
         try {
-            const response = await fetch('https://your-backend-url/register', {
+            const response = await fetch('http://localhost:8080/api/v1/user/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify(userData)
             });
 
+            console.log("HTTP Status Code:", response.status); // 打印状态码
             const data = await response.json();
+            console.log("Response from server:", data); // 打印从服务器返回的数据
 
             if (data.success) {
-                alert("Registration Successful!");
-                navigate('/generate');  // Redirect to '/generate' page
+                // Redirect to login page if registration is successful
+                navigate('/login');
             } else {
-                // If backend returns an error or unsuccessful registration
+                // Show error message if registration failed
                 alert("Registration failed, please check the network connection.");
             }
         } catch (error) {
@@ -45,8 +55,8 @@ const Register = () => {
                 <form className="register-form" onSubmit={handleRegistration}>
                     <div className="register-buttons">
                         <input type="text" placeholder="Username" className="register-input"
-                               value={username}
-                               onChange={(e) => setUsername(e.target.value)}
+                               value={name}
+                               onChange={(e) => setName(e.target.value)}
                                pattern={usernamePattern} title="Username can only contain letters and numbers." required/>
                         <input type="password" placeholder="Password" className="register-input"
                                value={password}

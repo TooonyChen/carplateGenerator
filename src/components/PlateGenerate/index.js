@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './plateGenerate.css';
+import { useUser } from '../UserContext'; // 引入 useUser
 
 const PlateGenerateInput = () => {
     const [carPlate, setCarPlate] = useState('');
     const navigate = useNavigate();
+    const { user } = useUser(); // 使用 user 对象
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!user.isLogin) {
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser && storedUser.isLogin) {
+                user(storedUser); // Set the user context from local storage
+            } else {
+                alert('Unauthorized access!');
+                navigate('/login'); // Redirect to login if no user info is found
+                return;
+            }
+        }
         try {
-            const response = await fetch('https://your-backend-url/generate', {
+            const response = await fetch('http://localhost:8080/api/v1/user/carplate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ macauCarPlate: carPlate })
+                body: JSON.stringify({ username: user.username, macauCarPlate: carPlate })
             });
             const data = await response.json();
 
@@ -29,9 +41,8 @@ const PlateGenerateInput = () => {
         }
     };
 
-    const handleReturn = (e) => {
-        e.preventDefault();
-        navigate('/login');
+    const handleReturn = () => {
+        navigate('/login'); // 导航回登录页面
     };
 
     return (

@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../UserContext'; // 引入 useUser
 
 import './Login.css';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const { setUser } = useUser(); // 使用 setUser 函数
 
     const handleSubmit = async (event) => {
-        event.preventDefault(); // Prevent the form from being submitted in the traditional way
-
-        // API call to the backend for validation
+        event.preventDefault();
         try {
-            const response = await fetch('https://your-backend-url/login', {
+            const response = await fetch('http://localhost:8080/api/v1/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username: name, password })
             });
 
             const data = await response.json();
-
-            // Check the response from the backend
             if (data.success) {
-                // If login is successful, navigate to the '/generate' page
+                setUser({ isLogin: true, username: name }); // 设置用户登录状态和用户名
+                localStorage.setItem('user', JSON.stringify({ isLogin: true, username: name }));
                 navigate('/generate');
             } else {
-                // If login failed, handle it here (e.g., show an error message)
                 alert('Login failed!');
             }
         } catch (error) {
-            // Handle errors if the fetch fails
             console.error('Login error:', error);
             alert('Login error!');
         }
@@ -48,8 +45,8 @@ const Login = () => {
                             type="text"
                             placeholder="Username"
                             className="login-input"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         />
                         <input
                             type="password"
